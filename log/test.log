@@ -1,0 +1,218 @@
+  [1m[36m (3.6ms)[0m  [1mDROP DATABASE IF EXISTS `DiabeticSolution_test`[0m
+  [1m[35m (0.4ms)[0m  CREATE DATABASE `DiabeticSolution_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (1001.5ms)[0m  [1mCREATE TABLE `diabetics` (`id` int(11) auto_increment PRIMARY KEY, `glucose_level` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (32.1ms)[0m  CREATE  INDEX `index_diabetics_on_user_id` USING btree ON `diabetics` (`user_id`) 
+  [1m[36m (12.5ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (11.2ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (8.7ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) [0m
+  [1m[35m (45.2ms)[0m  ALTER TABLE `diabetics` ADD CONSTRAINT `fk_rails_f3ee9fd3e6`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (12.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (18.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20160724092208')
+  [1m[36m (2.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20160724055017')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.4ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:49:36')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:50:35')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:50:35')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:50:35')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.4ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:51:27')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.4ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:51:27')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:51:27')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (2.6ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:51:27')
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.4ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:54:50')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.4ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:54:50')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:54:50')[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:54:50')
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.4ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = 2) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:54:50')
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `user_id`, `created_at`, `updated_at`) VALUES (1, 2, '2016-07-25 18:54:50', '2016-07-25 18:54:50')[0m
+  [1m[35m (3.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (2.8ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (1, '2016-07-25 18:55:32', '2016-07-25 18:55:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (2, '2016-07-25 18:55:32', '2016-07-25 18:55:32')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (1.1ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36mSQL (14.1ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (3, '2016-07-25 18:55:32', '2016-07-25 18:55:32')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (4, '2016-07-25 18:55:32', '2016-07-25 18:55:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 18:55:32')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (5, '2016-07-25 18:55:32', '2016-07-25 18:55:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.5ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.4ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 19:01:37')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 19:01:37')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 19:01:37')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-25 00:00:00' AND '2016-07-25 19:01:37')
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (12.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#create as HTML
+  Parameters: {"diabetic"=>{"glucose_level"=>"5"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (9.6ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:18:59')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:18:59')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (9.1ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:18:59')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:18:59')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+  Rendered diabetics/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 15.0ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#create as HTML
+  Parameters: {"diabetic"=>{"glucose_level"=>"5"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.4ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:19:37')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (5, '2016-07-26 19:19:37', '2016-07-26 19:19:37')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/diabetics
+Completed 302 Found in 17ms (ActiveRecord: 1.2ms)
+  [1m[36m (2.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+  Rendered diabetics/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:19:37')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:19:37')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:19:37')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:19:37')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+  Rendered diabetics/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#create as HTML
+  Parameters: {"diabetic"=>{"glucose_level"=>"5"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:20:11')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `diabetics` (`glucose_level`, `created_at`, `updated_at`) VALUES (5, '2016-07-26 19:20:11', '2016-07-26 19:20:11')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/diabetics
+Completed 302 Found in 17ms (ActiveRecord: 1.4ms)
+  [1m[36m (53.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by DiabeticsController#new as HTML
+  Rendered diabetics/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (0.3ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:20:11')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:20:11')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDiabetic Load (1.4ms)[0m  [1mSELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:20:11')[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDiabetic Load (0.3ms)[0m  SELECT `diabetics`.* FROM `diabetics` WHERE (user_id = NULL) AND (`diabetics`.`created_at` BETWEEN '2016-07-26 00:00:00' AND '2016-07-26 19:20:11')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
